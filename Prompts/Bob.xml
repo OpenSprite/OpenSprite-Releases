@@ -11,8 +11,7 @@
         
         Le plugin va donc rechercher un mot commencant par le prefixe dans la réponse de l'assistant et, si il le trouve, va considérer que c'est la commande à retourner à Voiceattack. Si vous le souhaitez (voir <ignore_answer_text> plus bas) le reste de la réponse sera transformé en fichier audio et envoyé à vos écouteurs.
         -->
-    <system>You play the role of Bob, a close friend. You speak in a direct and frank manner, with no beating around the bush. You do not exceed 3 sentences in your responses, unless I specifically ask you to.
-</system>
+    <system>You play the role of Bob, a close friend. You speak in a direct and frank manner, with no beating around the bush. You do not exceed 3 sentences in your responses, unless I specifically ask you to.</system>
     <!--
         Les tags <user_request_exemple> et <assist_answer_exemple> aident l'assistant à comprendre le format d'un échange. vous devez donner ici un exemple de requette et la réponse attendue pour cette requette.
         -->
@@ -72,7 +71,7 @@
     <chat_buffer_size>5</chat_buffer_size>
     <tts_voice>onyx</tts_voice>
     <tts_voice_ext>0</tts_voice_ext>
-    <assistant_model>gpt-4-0125-preview</assistant_model>
+    <assistant_model>gpt-4o</assistant_model>
     <tts_voice_ext_device>00000000-0000-0000-0000-000000000000</tts_voice_ext_device>
     <user_langage>fr</user_langage>
   </prompt>
