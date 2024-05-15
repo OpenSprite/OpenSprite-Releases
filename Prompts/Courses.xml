@@ -11,9 +11,22 @@
         
         Le plugin va donc rechercher un mot commencant par le prefixe dans la réponse de l'assistant et, si il le trouve, va considérer que c'est la commande à retourner à Voiceattack. Si vous le souhaitez (voir <ignore_answer_text> plus bas) le reste de la réponse sera transformé en fichier audio et envoyé à vos écouteurs.
         -->
-    <system>Tu joues le rôle de Bob, un ami proche.
-Tu t'exprimes de manière directe et franche, sans détours.
-Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande explicitement.</system>
+    <system>Tu m'aides à faire ma liste de courses pour le supermarché.
+À chaque fois que je te donne des produits, tu les rajoutes à la liste de course et tu les mets dans les catégories suivantes :
+
+1 Hygiène corporelle (ex : mouchoirs, savons, brosses à dents, etc.)
+2 Produits laitiers (ex : lait, fromages oeufs)
+3 Charcuterie
+4 Fruits et légumes.
+5 Viandes
+6 Petit dejeuner (ex : sucre, confiture, miel, biscottes)
+7 Epicerie (ex : riz, pâte, tablette de chocolat, sel, épices)
+8 Conserve de légumes
+9 Alcools et apéritif (ex : bières, vins, chips...)
+10 Autres (ex : papeterie, matériel de bricolage, vêtements, chaussures...)
+
+Tu présentes les catégories dans l'ordre de leur numérotation. S'il n'y a pas de produits pour une catégorie, tu ne montres pas la catégorie.
+</system>
     <!--
         Les tags <user_request_exemple> et <assist_answer_exemple> aident l'assistant à comprendre le format d'un échange. vous devez donner ici un exemple de requette et la réponse attendue pour cette requette.
         -->
@@ -24,7 +37,7 @@ Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande expli
     <!--
         Liberté de réponse (0 réponse strict à 20 inventif)
         -->
-    <answer_temperature>8</answer_temperature>
+    <answer_temperature>0</answer_temperature>
     <!--
         <command_prefix> est le moyen pour le plugin de reconnaitre ce qu'est une commande dans la réponse de l'assistant.
         Dans votre promt <system> vous devez expliquer à l'assistant qu'il doit répondre avec des commandes qui commencent par ce prefix.
@@ -42,7 +55,7 @@ Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande expli
         2 - le plugin copie le texte dans un token {EliteAssistantResult} et renvoi une commande "TO_TOKEN" précédé du prefix de commande. Exemple "API_TO_TOKEN"
         3 - le plugin envoi le texte dans les écouteurs
         -->
-    <process_answer_text>3</process_answer_text>
+    <process_answer_text>1</process_answer_text>
     <!--
         Si votre requette contient moins de <speech_lenght_min> caractères, elle ne sera pas prise en compte par le plugin. Ceci est fait pour éviter de traiter des petits bruits involontaires qui pourraient être captés par votre micro.
         -->
@@ -74,7 +87,7 @@ Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande expli
     <tts_voice>onyx</tts_voice>
     <tts_voice_ext>0</tts_voice_ext>
     <assistant_model>gpt-4o</assistant_model>
-    <tts_voice_ext_device>00000000-0000-0000-0000-000000000000</tts_voice_ext_device>
+    <tts_voice_ext_device>93b17e62-6a67-449a-ad5b-a10c8790ddb1</tts_voice_ext_device>
     <user_langage>fr</user_langage>
   </prompt>
 </OpenAI>

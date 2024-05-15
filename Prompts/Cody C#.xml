@@ -11,20 +11,29 @@
         
         Le plugin va donc rechercher un mot commencant par le prefixe dans la réponse de l'assistant et, si il le trouve, va considérer que c'est la commande à retourner à Voiceattack. Si vous le souhaitez (voir <ignore_answer_text> plus bas) le reste de la réponse sera transformé en fichier audio et envoyé à vos écouteurs.
         -->
-    <system>Tu joues le rôle de Bob, un ami proche.
-Tu t'exprimes de manière directe et franche, sans détours.
-Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande explicitement.</system>
+    <system>Tu es Cody, un développeur c# et tu utilises visual studio 2022. Nous nous tutoyons.
+Nous avons un amis commun qui s'appele Bob, avec qui je discute quand je ne fais pas du développement avec toi.
+
+Il y a deux cas de figure :
+
+1) Si je te demande de créer du code, tu ne produit que du code c#. Tu n'ajoutes jamais d'explications sur ce que fait ton code avant ou après celui-ci. Si ta réponse contient des fonctions, une documentation XML qui doit être présente. Si tu donnes des directives "using" elles seront précédées de mise en commentaire.
+
+2) Si je te demande une analyse de code ou des conseils ou tout autre chose, tu réponds en 3 ou 4 phrases maximum, sauf demande explicite de ma part. Tu réponds sans donner d'exemple de code. Tu découpes ta réponse en plusieures lignes de 100 caractères maximum par ligne précédées par la mise en commentaire "//"</system>
     <!--
         Les tags <user_request_exemple> et <assist_answer_exemple> aident l'assistant à comprendre le format d'un échange. vous devez donner ici un exemple de requette et la réponse attendue pour cette requette.
         -->
-    <user_request_exemple>
-    </user_request_exemple>
-    <assist_answer_exemple>
-    </assist_answer_exemple>
+    <user_request_exemple>Donne moi un exemple de code qui transforme un entier en une chaine</user_request_exemple>
+    <assist_answer_exemple>/// &lt;summary&gt;
+
+/// Converts an integer to its string representation.
+
+/// &lt;/summary&gt;
+
+num.ToString();</assist_answer_exemple>
     <!--
-        Liberté de réponse (0 réponse strict à 20 inventif)
+        Liberté de réponse (0 réponse strict à 10 inventif)
         -->
-    <answer_temperature>8</answer_temperature>
+    <answer_temperature>0</answer_temperature>
     <!--
         <command_prefix> est le moyen pour le plugin de reconnaitre ce qu'est une commande dans la réponse de l'assistant.
         Dans votre promt <system> vous devez expliquer à l'assistant qu'il doit répondre avec des commandes qui commencent par ce prefix.
@@ -32,7 +41,7 @@ Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande expli
     <command_prefix>
     </command_prefix>
     <!--
-       Si la réponse de l'assistant contient du texte en plus d'une commande (voir même si il ne contient pas de commande)
+        Si la réponse de l'assistant contient du texte en plus d'une commande (voir même si il ne contient pas de commande)
         le plugin va transformer ce texte avec un appel aux API OpenAI text-to-speech puis envoyer l'audio dans vos écouteurs.
         Cette étape est potentiellement couteuse en terme de token, et augmente le temps d'attente de la réponse.
         Vous pouvez l'éviter en mettant ici la valeur à 1, 2 ou 3. Dans ce cas, l'assistant restera silencieux... (mais les commandes seront reconnues et executées).
@@ -50,8 +59,7 @@ Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande expli
     <!--
         Vous pouvez demander à éliminer de la réponse de l'assistant tous les mots appartenant à cette liste de mots séparés par des ';'. Le test ne prends pas en compte la casse.
         -->
-    <remove_words>
-    </remove_words>
+    <remove_words>```csharp;```</remove_words>
     <!--
         <chat_buffer_size> vous permet de ré-injecter dans chaque requette vos derniers échanges avec l'assistant. Le but est d'avoir un minimum de suivi dans votre échange avec l'assistant, par exemple si vous souhaitez parler avec lui
         en plus des requettes de commandes. Si votre prompt <system> fait que l'assistant ne retourne que des commandes, avoir un suivi de la conversation a peu d'interêt et vous devriez laisser cette valeur à 0.
@@ -70,8 +78,8 @@ Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande expli
         * the previous assitant answer
         * Your new request
         -->
-    <chat_buffer_size>6</chat_buffer_size>
-    <tts_voice>onyx</tts_voice>
+    <chat_buffer_size>8</chat_buffer_size>
+    <tts_voice>fable</tts_voice>
     <tts_voice_ext>0</tts_voice_ext>
     <assistant_model>gpt-4o</assistant_model>
     <tts_voice_ext_device>00000000-0000-0000-0000-000000000000</tts_voice_ext_device>

@@ -11,9 +11,8 @@
         
         Le plugin va donc rechercher un mot commencant par le prefixe dans la réponse de l'assistant et, si il le trouve, va considérer que c'est la commande à retourner à Voiceattack. Si vous le souhaitez (voir <ignore_answer_text> plus bas) le reste de la réponse sera transformé en fichier audio et envoyé à vos écouteurs.
         -->
-    <system>Tu joues le rôle de Bob, un ami proche.
-Tu t'exprimes de manière directe et franche, sans détours.
-Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande explicitement.</system>
+    <system>Tu traduis les phrases en anglais.
+Si tu ne trouves pas de phrase à traduire, tu réponds par "..."</system>
     <!--
         Les tags <user_request_exemple> et <assist_answer_exemple> aident l'assistant à comprendre le format d'un échange. vous devez donner ici un exemple de requette et la réponse attendue pour cette requette.
         -->
@@ -24,7 +23,7 @@ Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande expli
     <!--
         Liberté de réponse (0 réponse strict à 20 inventif)
         -->
-    <answer_temperature>8</answer_temperature>
+    <answer_temperature>0</answer_temperature>
     <!--
         <command_prefix> est le moyen pour le plugin de reconnaitre ce qu'est une commande dans la réponse de l'assistant.
         Dans votre promt <system> vous devez expliquer à l'assistant qu'il doit répondre avec des commandes qui commencent par ce prefix.
@@ -42,7 +41,7 @@ Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande expli
         2 - le plugin copie le texte dans un token {EliteAssistantResult} et renvoi une commande "TO_TOKEN" précédé du prefix de commande. Exemple "API_TO_TOKEN"
         3 - le plugin envoi le texte dans les écouteurs
         -->
-    <process_answer_text>3</process_answer_text>
+    <process_answer_text>1</process_answer_text>
     <!--
         Si votre requette contient moins de <speech_lenght_min> caractères, elle ne sera pas prise en compte par le plugin. Ceci est fait pour éviter de traiter des petits bruits involontaires qui pourraient être captés par votre micro.
         -->
@@ -70,8 +69,8 @@ Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande expli
         * the previous assitant answer
         * Your new request
         -->
-    <chat_buffer_size>6</chat_buffer_size>
-    <tts_voice>onyx</tts_voice>
+    <chat_buffer_size>0</chat_buffer_size>
+    <tts_voice>echo</tts_voice>
     <tts_voice_ext>0</tts_voice_ext>
     <assistant_model>gpt-4o</assistant_model>
     <tts_voice_ext_device>00000000-0000-0000-0000-000000000000</tts_voice_ext_device>

@@ -11,9 +11,10 @@
         
         Le plugin va donc rechercher un mot commencant par le prefixe dans la réponse de l'assistant et, si il le trouve, va considérer que c'est la commande à retourner à Voiceattack. Si vous le souhaitez (voir <ignore_answer_text> plus bas) le reste de la réponse sera transformé en fichier audio et envoyé à vos écouteurs.
         -->
-    <system>Tu joues le rôle de Bob, un ami proche.
-Tu t'exprimes de manière directe et franche, sans détours.
-Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande explicitement.</system>
+    <system>Tu es Tartine, une cuisinière qui m'aide aux préparations culinaires.
+
+Pour la recette du jour je peux te demander les ingrédients nécessaires, les étapes à réaliser et je peux te demander de me donner l'étape suivante par rapport où j'en suis.
+Sauf demande explicite de ma part, tu ne donnes toujours qu'une seule étape à la fois.</system>
     <!--
         Les tags <user_request_exemple> et <assist_answer_exemple> aident l'assistant à comprendre le format d'un échange. vous devez donner ici un exemple de requette et la réponse attendue pour cette requette.
         -->
@@ -24,7 +25,7 @@ Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande expli
     <!--
         Liberté de réponse (0 réponse strict à 20 inventif)
         -->
-    <answer_temperature>8</answer_temperature>
+    <answer_temperature>5</answer_temperature>
     <!--
         <command_prefix> est le moyen pour le plugin de reconnaitre ce qu'est une commande dans la réponse de l'assistant.
         Dans votre promt <system> vous devez expliquer à l'assistant qu'il doit répondre avec des commandes qui commencent par ce prefix.
@@ -50,8 +51,7 @@ Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande expli
     <!--
         Vous pouvez demander à éliminer de la réponse de l'assistant tous les mots appartenant à cette liste de mots séparés par des ';'. Le test ne prends pas en compte la casse.
         -->
-    <remove_words>
-    </remove_words>
+    <remove_words>Ah,;Oh,</remove_words>
     <!--
         <chat_buffer_size> vous permet de ré-injecter dans chaque requette vos derniers échanges avec l'assistant. Le but est d'avoir un minimum de suivi dans votre échange avec l'assistant, par exemple si vous souhaitez parler avec lui
         en plus des requettes de commandes. Si votre prompt <system> fait que l'assistant ne retourne que des commandes, avoir un suivi de la conversation a peu d'interêt et vous devriez laisser cette valeur à 0.
@@ -71,7 +71,7 @@ Tu ne dépasses pas 3 phrases dans tes réponses, sauf si je te le demande expli
         * Your new request
         -->
     <chat_buffer_size>6</chat_buffer_size>
-    <tts_voice>onyx</tts_voice>
+    <tts_voice>shimmer</tts_voice>
     <tts_voice_ext>0</tts_voice_ext>
     <assistant_model>gpt-4o</assistant_model>
     <tts_voice_ext_device>00000000-0000-0000-0000-000000000000</tts_voice_ext_device>
